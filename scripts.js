@@ -100,7 +100,7 @@ function init(){
 	stats = new Stats();
 	document.body.appendChild( stats.dom );
 
-	for (let i=0; i < 6; i++){
+	for (let i=0; i < 30; i++){
 		let color = new THREE.Color(Math.random(), Math.random(), Math.random());
 		console.log(color);
 		let pl = new THREE.PointLight(color, 2, 1222);
