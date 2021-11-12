@@ -20,6 +20,7 @@ let timer;
 let mixer,bark;
 let  ringDisk ;
 let stats;
+let points = [];
 
 
 
@@ -53,7 +54,7 @@ function init(){
 
 	
 	camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 1, 1000 );
-	camera.position.set( 0, 0, 5 );
+	camera.position.set( 0, 0, 7 );
 	camera.lookAt(0,0,0);
 	
 
@@ -99,6 +100,18 @@ function init(){
 	stats = new Stats();
 	document.body.appendChild( stats.dom );
 
+	for (let i=0; i < 6; i++){
+		let color = new THREE.Color(Math.random(), Math.random(), Math.random());
+		console.log(color);
+		let pl = new THREE.PointLight(color, 2, 1222);
+		const sphereSize = 3;
+		const pointLightHelper = new THREE.PointLightHelper( pl, sphereSize );
+		scene.add( pointLightHelper );
+		scene.add(pl);
+		points.push(pl);
+		
+	}
+
 
 	animate();
 }
@@ -115,14 +128,19 @@ function animate(){
 function render(){
 
 
-	timer = Date.now() * 0.00003;
+	timer = Date.now() * 0.003;
 	
-
+	/*
 	container1.rotation.x+= 0.01;
 	container1.rotation.y+= 0.01;
-	
-
 	container1.rotation.z += 0.0011;
+	*/
+
+	for(let i =0; i < points.length; i++) {
+		points[i].position.x = Math.sin(timer * 1.5 +i) * 17 + Math.PI*i;
+		points[i].position.y = Math.cos(timer * .5 -i) * 5 * i + Math.PI*i;
+		points[i].position.z = Math.sin(timer * 1.5 +i) * 6 + Math.PI*i;
+	}
 
 	
 	renderer.render(scene, camera);
@@ -134,7 +152,7 @@ function addRec(x,y,z,r){
 	const rectLight = new THREE.RectAreaLight( 0xffffff, 5, 1, 8 );
 	rectLight.position.set(x, y, z );
 	rectLight.rotation.set(r, 0,0 );
-	conteiner3.add(rectLight);
+	//conteiner3.add(rectLight);
 
 	//const rectLightHelper = new RectAreaLightHelper( rectLight );
 	//rectLight.add( rectLightHelper );
