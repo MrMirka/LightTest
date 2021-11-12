@@ -138,8 +138,8 @@ function render(){
 
 	for(let i =0; i < points.length; i++) {
 		points[i].position.x = Math.sin(timer * 1.5 +i) * 17 + Math.PI*i;
-		points[i].position.y = Math.cos(timer * .5 -i) * 5 * i + Math.PI*i;
-		points[i].position.z = Math.sin(timer * 1.5 +i) * 6 + Math.PI*i;
+		points[i].position.y = -Math.cos(timer * .5 -i) * 5 * i + Math.PI*i;
+		points[i].position.z = Math.sin(timer * 1.5 +i) * 61 + Math.PI*i;
 	}
 
 	
