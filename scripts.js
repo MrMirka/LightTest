@@ -64,7 +64,7 @@ function init(){
 	renderer = new THREE.WebGLRenderer( { alpha:false, antialias: false } );
 	renderer.setPixelRatio( window.devicePixelRatio );
 	renderer.outputEncoding = THREE.sRGBEncoding;
-	renderer.toneMapping = THREE.ACESFilmicToneMapping;
+	//enderer.toneMapping = THREE.ACESFilmicToneMapping;
 	renderer.toneMappingExposure = 1;
 	renderer.setSize( window.innerWidth, window.innerHeight );
 	container.appendChild( renderer.domElement );
@@ -89,8 +89,8 @@ function init(){
 		let mat = new THREE.MeshPhongMaterial({
 			//envMap: texture,
 			color: 0xff1dd0,
-			metalness:1,
-			roughness: 0.16
+			//metalness:1,
+			//roughness: 0.16
 			
 		});
 		let mm = new THREE.Mesh(geo, mat);
@@ -104,7 +104,7 @@ function init(){
 	for (let i=0; i < 10; i++){
 		let color = new THREE.Color(Math.random(), Math.random(), Math.random());
 		console.log(color);
-		let pl = new THREE.PointLight(color, 2, 100);
+		let pl = new THREE.PointLight(color, 2, 60);
 		const sphereSize = 3;
 		const pointLightHelper = new THREE.PointLightHelper( pl, sphereSize );
 		//scene.add( pointLightHelper );
