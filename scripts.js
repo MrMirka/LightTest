@@ -101,13 +101,13 @@ function init(){
 	stats = new Stats();
 	document.body.appendChild( stats.dom );
 
-	for (let i=0; i < 30; i++){
+	for (let i=0; i < 3; i++){
 		let color = new THREE.Color(Math.random(), Math.random(), Math.random());
 		console.log(color);
 		let pl = new THREE.PointLight(color, 2, 100);
 		const sphereSize = 3;
 		const pointLightHelper = new THREE.PointLightHelper( pl, sphereSize );
-		scene.add( pointLightHelper );
+		//scene.add( pointLightHelper );
 		scene.add(pl);
 		points.push(pl);
 		
