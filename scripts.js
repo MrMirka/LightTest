@@ -119,7 +119,7 @@ function init(){
 
 function animate(){
 	render();
-	control.update();
+	//control.update();
 	stats.update();
 	requestAnimationFrame(animate);	
 }
