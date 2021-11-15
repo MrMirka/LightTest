@@ -86,10 +86,10 @@ function init(){
 		texture.mapping = THREE.CubeReflectionMapping;
 		texture.wrapS = THREE.RepeatWrapping;
 		texture.wrapP = THREE.RepeatWrapping;
-		let geo = new THREE.SphereGeometry(2, 256,96);
+		let geo = new THREE.SphereGeometry(2, 128,64);
 		let mat = new THREE.MeshPhongMaterial({
-			//envMap: texture,
-			color: 0xfc1dffd,
+			envMap: texture,
+			color: 0xfc1daad,
 			//metalness:1,
 			//roughness: 0.16
 			
@@ -143,6 +143,8 @@ function render(){
 		points[i].position.z = Math.sin(timer * 1.5 +i) * 61 + Math.PI*i;
 	}
 
+	console.log(renderer.capabilities);
+	renderer.info.reset();
 	
 	renderer.render(scene, camera);
 	
