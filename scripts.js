@@ -78,16 +78,17 @@ function init(){
 
 	const hdri = new RGBELoader();
 	const cubeloader = new THREE.CubeTextureLoader();
-	hdri.load( './img/global_env_2.hdr', function ( texture ) { //load hdri for model
-	//cubeloader.load( ['./img/cubemap/px.jpg', './img/cubemap/nx.jpg', './img/cubemap/py.jpg', './img/cubemap/ny.jpg', './img/cubemap/pz.jpg','./img/cubemap/nz.jpg'], function ( texture ) { //load hdri for model
+	//hdri.load( './img/global_env_2.hdr', function ( texture ) { //load hdri for model
+	cubeloader.load( ['./img/cubemap/px.jpg', './img/cubemap/nx.jpg', './img/cubemap/py.jpg', './img/cubemap/ny.jpg', './img/cubemap/pz.jpg','./img/cubemap/nz.jpg'], function ( texture ) { //load hdri for model
 		//FAKE
-		texture.mapping = THREE.EquirectangularReflectionMapping;
+		//texture.mapping = THREE.EquirectangularReflectionMapping;
+		texture.mapping = THREE.CubeReflectionMapping;
 		texture.wrapS = THREE.RepeatWrapping;
 		texture.wrapP = THREE.RepeatWrapping;
 		let geo = new THREE.SphereGeometry(2, 256,96);
 		let mat = new THREE.MeshStandardMaterial({
 			//envMap: texture,
-			color: 0xff1d1d00,
+			color: 0xff1dd0,
 			metalness:1,
 			roughness: 0.16
 			
@@ -103,7 +104,7 @@ function init(){
 	for (let i=0; i < 30; i++){
 		let color = new THREE.Color(Math.random(), Math.random(), Math.random());
 		console.log(color);
-		let pl = new THREE.PointLight(color, 2, 1222);
+		let pl = new THREE.PointLight(color, 2, 100);
 		const sphereSize = 3;
 		const pointLightHelper = new THREE.PointLightHelper( pl, sphereSize );
 		scene.add( pointLightHelper );
@@ -119,7 +120,7 @@ function init(){
 
 function animate(){
 	render();
-	//control.update();
+	control.update();
 	stats.update();
 	requestAnimationFrame(animate);	
 }
