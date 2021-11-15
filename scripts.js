@@ -84,7 +84,8 @@ function init(){
 		texture.mapping = THREE.EquirectangularReflectionMapping;
 		//texture.mapping = THREE.CubeReflectionMapping;
 		texture.wrapS = THREE.RepeatWrapping;
-		texture.wrapP = THREE.RepeatWrapping;
+		texture.wrapT = THREE.RepeatWrapping;
+		texture.generateMipmaps = false;
 		let geo = new THREE.SphereGeometry(2, 128,64);
 		let mat = new THREE.MeshPhongMaterial({
 			envMap: texture,
