@@ -61,7 +61,7 @@ function init(){
 	const container = document.getElementById( 'canvas' );
 
 
-	renderer = new THREE.WebGL1Renderer( { alpha:false, antialias: false } );
+	renderer = new THREE.WebGLRenderer( { alpha:false, antialias: true } );
 	renderer.setPixelRatio( window.devicePixelRatio );
 	renderer.outputEncoding = THREE.sRGBEncoding;
 	//enderer.toneMapping = THREE.ACESFilmicToneMapping;
@@ -87,7 +87,7 @@ function init(){
 		texture.wrapP = THREE.RepeatWrapping;
 		let geo = new THREE.SphereGeometry(2, 128,64);
 		let mat = new THREE.MeshPhongMaterial({
-			envMap: texture,
+			//envMap: texture,
 			color: 0xfc1daad,
 			//metalness:1,
 			//roughness: 0.16
