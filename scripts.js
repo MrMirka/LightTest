@@ -67,6 +67,7 @@ function init(){
 	//enderer.toneMapping = THREE.ACESFilmicToneMapping;
 	renderer.toneMappingExposure = 1;
 	renderer.setSize( window.innerWidth, window.innerHeight );
+	renderer.precision = "lowp";
 	container.appendChild( renderer.domElement );
 	
 
@@ -88,7 +89,7 @@ function init(){
 		let geo = new THREE.SphereGeometry(2, 256,96);
 		let mat = new THREE.MeshPhongMaterial({
 			//envMap: texture,
-			color: 0xff1dd0,
+			color: 0xfc1ddd,
 			//metalness:1,
 			//roughness: 0.16
 			
@@ -103,10 +104,9 @@ function init(){
 
 	for (let i=0; i < 10; i++){
 		let color = new THREE.Color(Math.random(), Math.random(), Math.random());
-		console.log(color);
 		let pl = new THREE.PointLight(color, 2, 60);
-		const sphereSize = 3;
-		const pointLightHelper = new THREE.PointLightHelper( pl, sphereSize );
+		//const sphereSize = 3;
+		//const pointLightHelper = new THREE.PointLightHelper( pl, sphereSize );
 		//scene.add( pointLightHelper );
 		scene.add(pl);
 		points.push(pl);
@@ -129,7 +129,7 @@ function animate(){
 function render(){
 
 
-	timer = Date.now() * 0.003;
+	timer = Date.now() * 0.0017;
 	
 	/*
 	container1.rotation.x+= 0.01;
