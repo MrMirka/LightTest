@@ -86,7 +86,7 @@ function init(){
 		texture.wrapS = THREE.RepeatWrapping;
 		texture.wrapP = THREE.RepeatWrapping;
 		let geo = new THREE.SphereGeometry(2, 256,96);
-		let mat = new THREE.MeshStandardMaterial({
+		let mat = new THREE.MeshPhongMaterial({
 			//envMap: texture,
 			color: 0xff1dd0,
 			metalness:1,
