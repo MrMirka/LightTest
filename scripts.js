@@ -67,7 +67,7 @@ function init(){
 	//enderer.toneMapping = THREE.ACESFilmicToneMapping;
 	renderer.toneMappingExposure = 1;
 	renderer.setSize( window.innerWidth, window.innerHeight );
-	renderer.autoClear = true;
+	renderer.physicallyCorrectLights = true;
 	container.appendChild( renderer.domElement );
 	
 
