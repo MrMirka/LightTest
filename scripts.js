@@ -67,7 +67,7 @@ function init(){
 	//enderer.toneMapping = THREE.ACESFilmicToneMapping;
 	renderer.toneMappingExposure = 1;
 	renderer.setSize( window.innerWidth, window.innerHeight );
-	renderer.precision = "lowp";
+	renderer.autoClear = true;
 	container.appendChild( renderer.domElement );
 	
 
@@ -89,7 +89,7 @@ function init(){
 		let geo = new THREE.SphereGeometry(2, 256,96);
 		let mat = new THREE.MeshPhongMaterial({
 			//envMap: texture,
-			color: 0xfc1ddd,
+			color: 0xfc1dffd,
 			//metalness:1,
 			//roughness: 0.16
 			
