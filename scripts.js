@@ -78,15 +78,16 @@ function init(){
 
 	const hdri = new RGBELoader();
 	const cubeloader = new THREE.CubeTextureLoader();
-	hdri.load( './img/global_env_2.hdr', function ( texture ) { //load hdri for model
-	//cubeloader.load( ['./img/cubemap/px.jpg', './img/cubemap/nx.jpg', './img/cubemap/py.jpg', './img/cubemap/ny.jpg', './img/cubemap/pz.jpg','./img/cubemap/nz.jpg'], function ( texture ) { //load hdri for model
+	//hdri.load( './img/global_env_2.hdr', function ( texture ) { //load hdri for model
+	cubeloader.load( ['./img/cubemap/px.jpg', './img/cubemap/nx.jpg', './img/cubemap/py.jpg', './img/cubemap/ny.jpg', './img/cubemap/pz.jpg','./img/cubemap/nz.jpg'], function ( texture ) { //load hdri for model
 		//FAKE
-		texture.mapping = THREE.EquirectangularReflectionMapping;
-		//texture.mapping = THREE.CubeReflectionMapping;
+		//texture.mapping = THREE.EquirectangularReflectionMapping;
+		texture.mapping = THREE.CubeReflectionMapping;
 		texture.wrapS = THREE.RepeatWrapping;
 		texture.wrapT = THREE.RepeatWrapping;
-		texture.generateMipmaps = false;
-		let geo = new THREE.SphereGeometry(2, 128,64);
+		texture.premultiplyAlpha = true;
+
+		let geo = new THREE.SphereGeometry(0.7, 128,64);
 		let mat = new THREE.MeshPhongMaterial({
 			envMap: texture,
 			color: 0xfc1daad,
