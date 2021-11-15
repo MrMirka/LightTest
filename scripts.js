@@ -61,13 +61,12 @@ function init(){
 	const container = document.getElementById( 'canvas' );
 
 
-	renderer = new THREE.WebGLRenderer( { alpha:false, antialias: false } );
+	renderer = new THREE.WebGL1Renderer( { alpha:false, antialias: false } );
 	renderer.setPixelRatio( window.devicePixelRatio );
 	renderer.outputEncoding = THREE.sRGBEncoding;
 	//enderer.toneMapping = THREE.ACESFilmicToneMapping;
 	renderer.toneMappingExposure = 1;
 	renderer.setSize( window.innerWidth, window.innerHeight );
-	renderer.physicallyCorrectLights = true;
 	container.appendChild( renderer.domElement );
 	
 
@@ -143,7 +142,6 @@ function render(){
 		points[i].position.z = Math.sin(timer * 1.5 +i) * 61 + Math.PI*i;
 	}
 
-	console.log(renderer.capabilities);
 	renderer.info.reset();
 	
 	renderer.render(scene, camera);
